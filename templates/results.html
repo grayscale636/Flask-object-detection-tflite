@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection Result</title>
+</head>
+<body>
+    <h1>Object Detection Result</h1>
+
+    <!-- Tampilkan gambar asli -->
+    <h2>Original Image</h2>
+    <img src="{{ url_for('static', filename='uploaded_image.jpg') }}" alt="Original Image" style="max-width: 500px;">
+
+    <!-- Tampilkan hasil deteksi objek -->
+    <h2>Detection Result</h2>
+    <img src="{{ url_for('static', filename='result_image.jpg') }}" alt="Detection Result" style="max-width: 500px;">
+
+    <!-- Tampilkan informasi tambahan atau detail deteksi objek -->
+    <h3>Detected Objects:</h3>
+    <ul>
+        {% for obj in result %}
+            <li>{{ obj.label }} - Confidence: {{ obj.confidence }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Tambahkan tombol atau tautan untuk kembali ke halaman utama -->
+    <a href="/">Back to Home</a>
+</body>
+</html>
